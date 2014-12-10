@@ -1,4 +1,5 @@
 require 'hipchat'
+require 'digest'
 
 class HipchatMessenger
   def initialize(token, room)
@@ -17,6 +18,6 @@ class HipchatMessenger
   end
 
   def color_for(nick)
-    %w{yellow red green purple}[nick.to_s.hash % 4]
+    %w{yellow red green purple gray}[Digest::MD5.hexdigest(nick.to_s).to_i(16) % 5]
   end
 end
