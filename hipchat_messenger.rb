@@ -8,7 +8,8 @@ class HipchatMessenger
   end
 
   def message(message)
-    hipchat_html_message = "<b>#{message.user.nick}</b>: #{message.message}"
+    hipchat_html_message = "<b>#{message.user.nick}</b>" +
+                            (message.action? ? " #{message.action_message}" : ": #{message.message}")
     message_options = {
       notify: true,
       color: color_for(message.user.nick)
