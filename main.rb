@@ -15,7 +15,7 @@ hipchat = HipchatMessenger.new(ENV['HIPCHAT_API_TOKEN'], ENV['HIPCHAT_ROOM'])
 
 cinchbot = Cinch::Bot.new do |bot|
   configure do |c|
-    c.nick = ENV['IRC_NICK']
+    c.nick = c.user = ENV['IRC_NICK']
     c.server = ENV['IRC_SERVER']
     c.channels = ENV['IRC_CHANNELS'].split(';')
   end
