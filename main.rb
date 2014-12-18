@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'cinch'
+require 'dotenv'
+Dotenv.load
 
 require './hipchat_messenger'
 
